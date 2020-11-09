@@ -1,25 +1,42 @@
-<div class ="container-fluid d-flex justify-content-start">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link texto text-monospace text-uppercase font-weight-bold p-3" routerLink="/home">HOME <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link texto text-monospace text-uppercase font-weight-bold p-3" routerLink="/feed">FEED</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link texto text-monospace text-uppercase font-weight-bold p-3" routerLink="/login">LOGIN</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link texto text-monospace text-uppercase font-weight-bold p-3" routerLink="/cadastro">CADASTRO</a>
-            </li>
-          </ul>
+<div class="container-fluid d-flex justify-content-start">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link texto text-monospace text-uppercase font-weight-bold p-3" routerLink="/home">HOME <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link texto text-monospace text-uppercase font-weight-bold p-3" routerLink="/feed">FEED</a>
+        </li>
+
+        <div *ngIf='auth.btnLogin()'>
+          <li class="nav-item">
+            <a class="nav-link texto text-monospace text-uppercase font-weight-bold p-3" routerLink="/login">LOGIN</a>
+          </li>
         </div>
-      </nav>
+
+        <div *ngIf='auth.btnLogin()'>
+          <li class="nav-item">
+            <a class="nav-link texto text-monospace text-uppercase font-weight-bold p-3"
+              routerLink="/cadastro">CADASTRO</a>
+          </li>
+        </div>
+
+        <div *ngIf='auth.btnSair()'>
+          <li class="nav-item">
+            <a class="nav-link texto text-monospace text-uppercase font-weight-bold p-3" (click)='sair()'>Sair</a>
+          </li>
+        </div>
+
+
+      </ul>
+    </div>
+  </nav>
 </div>
